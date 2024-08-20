@@ -16,7 +16,7 @@ import java.net.URI;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping(value = "/apí/pagamento")
+@RequestMapping(value = "/api/pagamento")
 public class PagamentoController {
 
     private final PagamentoService pagamentoService;
@@ -39,10 +39,10 @@ public class PagamentoController {
         return ResponseEntity.created(endereco).body(pagamentoDto);
     }
 
-    @PutMapping
+    @PutMapping("/{id}")
     public ResponseEntity<PagamentoDto> update(@PathVariable @Valid Long id, @RequestBody @Valid PagamentoDto pagamentoDto) {
         PagamentoDto atualizado = pagamentoService.update(id, pagamentoDto);
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok(atualizado);
     }
 
     @DeleteMapping("/{id}")
