@@ -99,6 +99,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>pagamentos</finalName>
 	</build>
 
 </project>
